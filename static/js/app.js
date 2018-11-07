@@ -25,15 +25,51 @@ function buildCharts(sample) {
   var chartData = `/samples/${sample}`;
     // @TODO: Build a Bubble Chart using the sample data
   d3.json(chartData).then(function(data){
-    
+    var x_data = data.otu_ids;
+    var y_data = data.sample_values;
+    var size = data.sample_values;
+    var color = data.otu_ids;
+    var textValues = data.otu_labels;
+
+    var trace1 = {
+      x: x_data,
+      y: y_data,
+      text: textValues,
+      mode: 'markers',
+      marker: {
+        size: size,
+        color: color
+      }
+    };
+
+    var data = [trace1];
+    var layout = {
+      title: "Bubble Chart for MicroOrganism",
+      xaxis: {title: "OTU ID"}
+    };
+    Plotly.newPlot("bubble", data, layout);
+  
     // @TODO: Build a Pie Chart
-    var values = data.sample.slice(0,10);
-    console.log(values);
-  })
+  
+    d3.json(chartData).then(function(data){
+      var pieValues = data.sample_values.slice(0,10);
+      var pieLabel = data.otu_ids.slice(0,10);
+      var hover = data.otu_labels.slice(0,10);
+
+      var pieData = [{
+        values: pieValues,
+        labels: pieLabel,
+        hovertext: hover,
+        type: "pie"
+      }];
+      Plotly.newPlot('pie', pieData);
+    });
+  });
     
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
-}
+};
+
 
 function init() {
   // Grab a reference to the dropdown select element

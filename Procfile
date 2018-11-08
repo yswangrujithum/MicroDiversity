@@ -1,1 +1,1 @@
-web: gunicorn micro_diversity.app:app
+web: gunicorn app:app

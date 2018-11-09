@@ -1,6 +1,6 @@
 # MicroDiversity
 
-![Bacteria](Images/UFO.png)
+![Bacteria](Images/bacteria.jpeg)
 
 This project is focusing on creating a visualization from the provided data and deploying the website onto Heroku.
 The project can be seen at https://micro-diversity.herokuapp.com/ 

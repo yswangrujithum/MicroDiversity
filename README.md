@@ -34,7 +34,7 @@ Trace1 contained all of the required information for the chart.
 
 The structure of this visualization is a scatter plot with the size of the dot representing the population of the micro-organism. 
 
-![Bubble](Images/newplot (1).png)
+![Bubble](Images/bubble.png)
 
 ### Making the Pie Chart
 Similarly to the Bubble Chart, with different labels in the plotting variable. In this case, I assigned them onto the variable called pieData 
